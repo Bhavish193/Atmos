@@ -1,34 +1,60 @@
 .weather-section{
 
-    padding:60px 8%;
+    padding:0 8% 70px;
 
-    animation:fadeUp .8s ease;
+    animation:fadeUp .7s ease;
 }
 
 .weather-card{
+
+    max-width:1200px;
+
+    margin:0 auto;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    background:rgba(255,255,255,.08);
+    padding:45px;
 
-    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.07);
 
-    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(30px);
+
+    border:1px solid rgba(255,255,255,.08);
 
     border-radius:24px;
 
-    padding:45px;
-
-    box-shadow:var(--shadow);
+    box-shadow:0 20px 60px rgba(0,0,0,.28);
 }
 
 .weather-left h2{
 
     font-size:5rem;
+    line-height:1;
+
+    margin:18px 0;
 }
 
+.weather-center{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    color:var(--text-light);
+}
+
+.weather-center p{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
 .location{
 
     display:flex;

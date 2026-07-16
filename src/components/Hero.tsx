@@ -34,60 +34,77 @@ function Hero({searched,city,setCity,onSearch,}: HeroProps)  {
 
     return (
         <section className={`hero ${searched ? "hero-small" : ""}`}>
-            <div className="blur blur-one"></div>
-            <div className="blur blur-two"></div>
 
-            <p className="greeting">
-                {greeting} {emoji}
-            </p>
+            <div className="hero-content">
 
-            <h1>
-                Look beyond the forecast,
-                <br />
-                Meet every sky
-            </h1>
+                <p className="greeting">
+                    {greeting} {emoji}
+                </p>
 
-            <p className="hero-text">
-               Discover live weather through immersive visuals that transform with every city you explore.
-            </p>
+                {!searched && (
+                    <>
+                        <h1>
+                            Look beyond the forecast,
+                            <br />
+                            Meet every sky
+                        </h1>
 
-            <SearchBar
-                city={city}
-                setCity={setCity}
-                onSearch={onSearch}
-            />
+                        <p className="hero-text">
+                            Discover live weather through immersive visuals that
+                            transform with every city you explore.
+                        </p>
+                    </>
+                )}
 
-            <div className="popular">
+                <SearchBar
+                    city={city}
+                    setCity={setCity}
+                    onSearch={onSearch}
+                />
 
-                <span>Popular</span>
+                {!searched && (
+                    <div className="popular">
 
-                <button onClick={() => {
-                    setCity("Delhi");
-                    onSearch();
-                }}>
-                    Delhi
-                </button>
+                        <span>Popular</span>
 
-                <button onClick={() => {
-                    setCity("London");
-                    onSearch();
-                }}>
-                    London
-                </button>
+                        <button
+                            onClick={() => {
+                                setCity("Delhi");
+                                onSearch();
+                            }}
+                        >
+                            Delhi
+                        </button>
 
-                <button onClick={() => {
-                    setCity("Tokyo");
-                    onSearch();
-                }}>
-                    Tokyo
-                </button>
+                        <button
+                            onClick={() => {
+                                setCity("London");
+                                onSearch();
+                            }}
+                        >
+                            London
+                        </button>
 
-                <button onClick={() => {
-                    setCity("Paris");
-                    onSearch();
-                }}>
-                    Paris
-                </button>
+                        <button
+                            onClick={() => {
+                                setCity("Tokyo");
+                                onSearch();
+                            }}
+                        >
+                            Tokyo
+                        </button>
+
+                        <button
+                            onClick={() => {
+                                setCity("Paris");
+                                onSearch();
+                            }}
+                        >
+                            Paris
+                        </button>
+
+                    </div>
+                )}
 
             </div>
 

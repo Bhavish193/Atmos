@@ -12,10 +12,20 @@ function App() {
     const [searched, setSearched] = useState(false);
     const [city, setCity] = useState("");
 
+    const goHome = () => {
+        setSearched(false);
+        setCity("");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
     return (
         <>
 
-            <Navbar />
+            <Navbar goHome={goHome} />
 
             <Hero
                 searched={searched}

@@ -4,7 +4,7 @@
 
     overflow:hidden;
 
-    min-height:75vh;
+    min-height:68vh;
 
     display:flex;
 
@@ -18,14 +18,27 @@
 
     padding:0 8%;
 
-    transition:.7s ease;
+    transition:
+        min-height .7s ease,
+        padding .7s ease,
+        transform .7s ease;
 }
 
 .hero-small{
 
-    min-height:45vh;
+    min-height:24vh;
+
+    padding:25px 8%;
+
+    justify-content:center;
 }
 
+.hero h1,
+.hero .hero-text,
+.hero .popular{
+
+    transition:.4s;
+}
 .greeting{
     color:var(--secondary);
     font-size:1rem;
@@ -146,30 +159,4 @@
     border-radius:50px;
 
     cursor:pointer;
-}
-
-.blur{
-    position:absolute;
-    width:320px;
-    height:320px;
-
-    border-radius:50%;
-
-    filter:blur(120px);
-
-    z-index:-1;
-}
-
-.blur-one{
-    top:80px;
-    left:-100px;
-
-    background:#6C63FF55;
-}
-
-.blur-two{
-    right:-120px;
-    bottom:20px;
-
-    background:#2563EB55;
 }

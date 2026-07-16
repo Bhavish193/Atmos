@@ -14,3 +14,20 @@
 
     --transition:.3s ease;
 }
+
+body {
+
+    background:
+        radial-gradient(circle at left 30%, rgba(108, 99, 255, .18), transparent 35%),
+        radial-gradient(circle at right 60%, rgba(37, 99, 235, .14), transparent 40%),
+        linear-gradient(
+            180deg,
+            #11182d 0%,
+            #131b32 45%,
+            #11182d 100%
+        );
+
+    background-attachment: fixed;
+
+    min-height: 100vh;
+}
