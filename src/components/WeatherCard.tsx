@@ -1,16 +1,54 @@
 import "../styles/weather.css";
+
 import {
     MapPin,
     Sun,
+    Cloud,
+    CloudRain,
+    CloudSnow,
+    CloudLightning,
+    CloudFog,
     CalendarDays,
     Clock3,
 } from "lucide-react";
 
+import type { WeatherData } from "../types/weather";
+
 interface WeatherCardProps {
-    city: string;
+    weather: WeatherData;
 }
 
-function WeatherCard({ city }: WeatherCardProps) {
+function getWeatherIcon(condition: string) {
+        switch (condition) {
+
+            case "Clear Sky":
+                return <Sun size={90} />;
+
+            case "Cloudy":
+                return <Cloud size={90} />;
+
+            case "Rain":
+            case "Rain Showers":
+                return <CloudRain size={90} />;
+
+            case "Snow":
+                return <CloudSnow size={90} />;
+
+            case "Thunderstorm":
+                return <CloudLightning size={90} />;
+
+            case "Fog":
+                return <CloudFog size={90} />;
+
+            default:
+                return <Sun size={90} />;
+
+        }
+
+    }
+
+
+function WeatherCard({ weather }: WeatherCardProps) {
 
     const today = new Date();
 
@@ -34,17 +72,16 @@ function WeatherCard({ city }: WeatherCardProps) {
                 <div className="weather-left">
 
                     <p className="location">
-
                         <MapPin size={18} />
-
-                        {city}
-
+                        {weather.city}, {weather.country}
                     </p>
 
-                    <h2>28°</h2>
+                    <h2>
+                        {Math.round(weather.temperature)}°
+                    </h2>
 
                     <p className="condition">
-                        Clear Sky
+                        {weather.condition}
                     </p>
 
                 </div>
@@ -52,42 +89,36 @@ function WeatherCard({ city }: WeatherCardProps) {
                 <div className="weather-center">
 
                     <p>
-
                         <CalendarDays size={18} />
-
                         {date}
-
                     </p>
 
                     <p>
-
                         <Clock3 size={18} />
-
                         Last Updated • {time}
-
                     </p>
 
                 </div>
 
                 <div className="weather-right">
 
-                    <Sun size={90} />
+                    {getWeatherIcon(weather.condition)}
 
                     <div className="details">
 
                         <p>
                             Feels Like
-                            <span>30°</span>
+                            <span>{Math.round(weather.feelsLike)}°</span>
                         </p>
 
                         <p>
                             Humidity
-                            <span>68%</span>
+                            <span>{weather.humidity}%</span>
                         </p>
 
                         <p>
                             Wind
-                            <span>12 km/h</span>
+                            <span>{weather.wind} km/h</span>
                         </p>
 
                     </div>
