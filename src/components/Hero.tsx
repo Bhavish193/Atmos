@@ -1,7 +1,14 @@
 import "./../styles/hero.css";
 import SearchBar from "./SearchBar";
 
-function Hero() {
+interface HeroProps {
+    searched: boolean;
+    city: string;
+    setCity: React.Dispatch<React.SetStateAction<string>>;
+    onSearch: () => void;
+}
+
+function Hero({searched,city,setCity,onSearch,}: HeroProps)  {
 
     const hour = new Date().getHours();
 
@@ -26,14 +33,16 @@ function Hero() {
     }
 
     return (
-        <section className="hero">
+        <section className={`hero ${searched ? "hero-small" : ""}`}>
+            <div className="blur blur-one"></div>
+            <div className="blur blur-two"></div>
 
             <p className="greeting">
                 {greeting} {emoji}
             </p>
 
             <h1>
-                Look beyond the forecast
+                Look beyond the forecast,
                 <br />
                 Meet every sky
             </h1>
@@ -42,16 +51,43 @@ function Hero() {
                Discover live weather through immersive visuals that transform with every city you explore.
             </p>
 
-            <SearchBar />
+            <SearchBar
+                city={city}
+                setCity={setCity}
+                onSearch={onSearch}
+            />
 
             <div className="popular">
 
                 <span>Popular</span>
 
-                <button>Delhi</button>
-                <button>London</button>
-                <button>Tokyo</button>
-                <button>Paris</button>
+                <button onClick={() => {
+                    setCity("Delhi");
+                    onSearch();
+                }}>
+                    Delhi
+                </button>
+
+                <button onClick={() => {
+                    setCity("London");
+                    onSearch();
+                }}>
+                    London
+                </button>
+
+                <button onClick={() => {
+                    setCity("Tokyo");
+                    onSearch();
+                }}>
+                    Tokyo
+                </button>
+
+                <button onClick={() => {
+                    setCity("Paris");
+                    onSearch();
+                }}>
+                    Paris
+                </button>
 
             </div>
 
