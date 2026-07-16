@@ -1,0 +1,55 @@
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:28px 8%;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:1.6rem;
+    font-weight:700;
+}
+
+.logo svg{
+    font-size:2rem;
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    gap:40px;
+
+    color:var(--text-light);
+}
+
+.nav-links li{
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+.nav-links li:hover{
+    color:var(--text);
+}
+
+.nav-icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+    font-size:1.3rem;
+}
+
+.nav-icons svg{
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+.nav-icons svg:hover{
+    color:var(--primary);
+}
