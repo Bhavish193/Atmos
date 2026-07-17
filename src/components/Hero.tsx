@@ -5,10 +5,11 @@ interface HeroProps {
     searched: boolean;
     city: string;
     setCity: React.Dispatch<React.SetStateAction<string>>;
-    onSearch: () => void;
+    onSearch: (city: string) => void;
+    loading: boolean;
 }
 
-function Hero({searched,city,setCity,onSearch,}: HeroProps)  {
+function Hero({searched,city,setCity,onSearch,loading,}: HeroProps) {
 
     const hour = new Date().getHours();
 
@@ -59,7 +60,8 @@ function Hero({searched,city,setCity,onSearch,}: HeroProps)  {
                 <SearchBar
                     city={city}
                     setCity={setCity}
-                    onSearch={onSearch}
+                    onSearch={() => onSearch(city)}
+                    loading={loading}
                 />
 
                 {!searched && (
@@ -70,7 +72,7 @@ function Hero({searched,city,setCity,onSearch,}: HeroProps)  {
                         <button
                             onClick={() => {
                                 setCity("Delhi");
-                                onSearch();
+                                onSearch("Delhi");
                             }}
                         >
                             Delhi
@@ -79,7 +81,7 @@ function Hero({searched,city,setCity,onSearch,}: HeroProps)  {
                         <button
                             onClick={() => {
                                 setCity("London");
-                                onSearch();
+                                onSearch("London");
                             }}
                         >
                             London
@@ -88,7 +90,7 @@ function Hero({searched,city,setCity,onSearch,}: HeroProps)  {
                         <button
                             onClick={() => {
                                 setCity("Tokyo");
-                                onSearch();
+                                onSearch("Tokyo");
                             }}
                         >
                             Tokyo
@@ -97,13 +99,14 @@ function Hero({searched,city,setCity,onSearch,}: HeroProps)  {
                         <button
                             onClick={() => {
                                 setCity("Paris");
-                                onSearch();
+                                onSearch("Paris");
                             }}
                         >
                             Paris
                         </button>
 
                     </div>
+
                 )}
 
             </div>

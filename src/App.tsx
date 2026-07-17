@@ -8,8 +8,9 @@ import WeatherCard from "./components/WeatherCard";
 import Highlights from "./components/Highlights";
 import Forecast from "./components/Forecast";
 import Footer from "./components/Footer";
+import WeatherScene from "./components/WeatherScene";
 
-import Loading from "./components/Loading";
+
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
     const [weather, setWeather] = useState<WeatherData | null>(null);
     const [loading, setLoading] = useState(false);
 
-    const [error, setError] = useState("");
+    const [error, setError] =useState("");
 
     const goHome = () => {
         setSearched(false);
@@ -31,8 +32,14 @@ function App() {
         });
     };
 
+
     return (
-        <>
+        <div className="app">
+
+            <WeatherScene
+                weather={weather}
+                searched={searched}
+            />
 
             <Navbar goHome={goHome} />
 
@@ -40,32 +47,30 @@ function App() {
                 searched={searched}
                 city={city}
                 setCity={setCity}
-                onSearch={async () => {
+                loading={loading}
+                onSearch={async (searchCity) => {
 
-                    if (city.trim() === "") return;
+                    if (searchCity.trim() === "") return;
 
                     try {
 
-                        setLoading(true);
                         setError("");
+                        setLoading(true);
 
-                        const data = await getWeatherData(city);
+                        const data = await getWeatherData(searchCity);
 
                         setWeather(data);
-
                         setSearched(true);
 
-                    }
+                    } catch (err) {
 
-                    catch (err) {
+                        if (err instanceof Error) {
+                            setError(err.message);
+                        } else {
+                            setError("Something went wrong.");
+                        }
 
-                        setError("City not found.");
-
-                        setSearched(false);
-
-                    }
-
-                    finally {
+                    } finally {
 
                         setLoading(false);
 
@@ -74,30 +79,22 @@ function App() {
                 }}
             />
 
-            {loading && <Loading />}
-                {error && (
-                    <p className="error-message">
-                        {error}
-                    </p>
-                )}
+            {error && (
+                <div className="error-message">
+                    {error}
+                </div>
+            )}
 
-                {searched && weather && (
+            {searched && weather && (
+                <>
+                    <WeatherCard weather={weather} />
+                    <Highlights />
+                    <Forecast />
+                    <Footer />
+                </>
+            )}
 
-                    <>
-
-                        <WeatherCard weather={weather} />
-
-                        <Highlights />
-
-                        <Forecast />
-
-                        <Footer />
-
-                    </>
-
-                )}
-
-        </>
+        </div>
     );
 }
 

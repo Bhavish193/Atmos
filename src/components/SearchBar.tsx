@@ -4,9 +4,10 @@ interface SearchBarProps {
     city: string;
     setCity: React.Dispatch<React.SetStateAction<string>>;
     onSearch: () => void;
+    loading: boolean;
 }
 
-function SearchBar({city,setCity,onSearch,}: SearchBarProps) {
+function SearchBar({ city, setCity, onSearch, loading,}: SearchBarProps) {
     return (
         <div className="search-box">
 
@@ -29,7 +30,15 @@ function SearchBar({city,setCity,onSearch,}: SearchBarProps) {
             </div>
 
             <button onClick={onSearch}>
-                Search
+                {loading ? (
+                    <>
+                        <span className="btn-spinner"></span>
+                        Searching...
+                    </>
+                ) : (
+                    "Search"
+                )}
+
             </button>
 
         </div>

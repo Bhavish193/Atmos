@@ -14,13 +14,13 @@ export async function getWeatherData(
     );
 
     if (!geoResponse.ok) {
-        throw new Error("Unable to fetch location.");
+        throw new Error("Couldn't connect to the weather service.");
     }
 
     const geoData = await geoResponse.json();
 
     if (!geoData.results || geoData.results.length === 0) {
-        throw new Error("City not found.");
+        throw new Error("City not found. Check the spelling and try again.");
     }
 
     const location = geoData.results[0];
@@ -34,7 +34,7 @@ export async function getWeatherData(
     );
 
     if (!weatherResponse.ok) {
-        throw new Error("Unable to fetch weather.");
+        throw new Error("Couldn't fetch the weather right now.");
     }
 
     const weather = await weatherResponse.json();

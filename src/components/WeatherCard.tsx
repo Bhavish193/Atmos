@@ -2,14 +2,14 @@ import "../styles/weather.css";
 
 import {
     MapPin,
+    CalendarDays,
+    Clock3,
     Sun,
     Cloud,
     CloudRain,
     CloudSnow,
     CloudLightning,
     CloudFog,
-    CalendarDays,
-    Clock3,
 } from "lucide-react";
 
 import type { WeatherData } from "../types/weather";
@@ -19,34 +19,31 @@ interface WeatherCardProps {
 }
 
 function getWeatherIcon(condition: string) {
-        switch (condition) {
+    switch (condition) {
 
-            case "Clear Sky":
-                return <Sun size={90} />;
+        case "Clear Sky":
+            return <Sun size={90} />;
 
-            case "Cloudy":
-                return <Cloud size={90} />;
+        case "Cloudy":
+            return <Cloud size={90} />;
 
-            case "Rain":
-            case "Rain Showers":
-                return <CloudRain size={90} />;
+        case "Rain":
+        case "Rain Showers":
+            return <CloudRain size={90} />;
 
-            case "Snow":
-                return <CloudSnow size={90} />;
+        case "Snow":
+            return <CloudSnow size={90} />;
 
-            case "Thunderstorm":
-                return <CloudLightning size={90} />;
+        case "Thunderstorm":
+            return <CloudLightning size={90} />;
 
-            case "Fog":
-                return <CloudFog size={90} />;
+        case "Fog":
+            return <CloudFog size={90} />;
 
-            default:
-                return <Sun size={90} />;
-
-        }
-
+        default:
+            return <Sun size={90} />;
     }
-
+}
 
 function WeatherCard({ weather }: WeatherCardProps) {
 
@@ -67,59 +64,63 @@ function WeatherCard({ weather }: WeatherCardProps) {
 
         <section className="weather-section">
 
-            <div className="weather-card">
+            <div className={`weather-card ${weather.condition.toLowerCase().replace(/\s+/g, "-")}`}>
 
-                <div className="weather-left">
+                <div className="weather-overlay"></div>
 
-                    <p className="location">
-                        <MapPin size={18} />
-                        {weather.city}, {weather.country}
-                    </p>
+                <div className="weather-content">
 
-                    <h2>
-                        {Math.round(weather.temperature)}°
-                    </h2>
+                    <div className="weather-left">
 
-                    <p className="condition">
-                        {weather.condition}
-                    </p>
+                        <p className="location">
+                            <MapPin size={18} />
+                            {weather.city}, {weather.country}
+                        </p>
 
-                </div>
+                        <h2>{Math.round(weather.temperature)}°</h2>
 
-                <div className="weather-center">
+                        <p className="condition">
+                            {weather.condition}
+                        </p>
 
-                    <p>
-                        <CalendarDays size={18} />
-                        {date}
-                    </p>
+                    </div>
 
-                    <p>
-                        <Clock3 size={18} />
-                        Last Updated • {time}
-                    </p>
-
-                </div>
-
-                <div className="weather-right">
-
-                    {getWeatherIcon(weather.condition)}
-
-                    <div className="details">
+                    <div className="weather-center">
 
                         <p>
-                            Feels Like
-                            <span>{Math.round(weather.feelsLike)}°</span>
+                            <CalendarDays size={18} />
+                            {date}
                         </p>
 
                         <p>
-                            Humidity
-                            <span>{weather.humidity}%</span>
+                            <Clock3 size={18} />
+                            Last Updated • {time}
                         </p>
 
-                        <p>
-                            Wind
-                            <span>{weather.wind} km/h</span>
-                        </p>
+                    </div>
+
+                    <div className="weather-right">
+
+                        {getWeatherIcon(weather.condition)}
+
+                        <div className="details">
+
+                            <p>
+                                Feels Like
+                                <span>{Math.round(weather.feelsLike)}°</span>
+                            </p>
+
+                            <p>
+                                Humidity
+                                <span>{weather.humidity}%</span>
+                            </p>
+
+                            <p>
+                                Wind
+                                <span>{weather.wind} km/h</span>
+                            </p>
+
+                        </div>
 
                     </div>
 

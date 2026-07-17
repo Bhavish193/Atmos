@@ -1,0 +1,63 @@
+.loading-overlay{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:22px;
+
+    background:rgba(10,15,35,.55);
+
+    backdrop-filter:blur(8px);
+
+    z-index:9999;
+
+    animation:fadeIn .25s ease;
+
+}
+
+.loader{
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    border:5px solid rgba(255,255,255,.15);
+    border-top:5px solid var(--primary);
+
+    animation:spin .8s linear infinite;
+
+}
+
+.loading-overlay p{
+
+    color:white;
+    font-size:18px;
+    letter-spacing:.5px;
+
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
