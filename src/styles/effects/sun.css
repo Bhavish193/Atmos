@@ -1,0 +1,62 @@
+.sun-effect {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.sun {
+    position: absolute;
+
+    top: -18px;
+    right: -38px;
+
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        #FFE88A 0%,
+        #FFD54A 65%,
+        #FFC107 100%
+    );
+
+    box-shadow:
+        0 0 35px rgba(255, 213, 74, 0.9),
+        0 0 70px rgba(255, 213, 74, 0.55),
+        0 0 120px rgba(255, 213, 74, 0.25);
+
+    animation: sunGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes sunGlow {
+
+    from {
+
+        transform: scale(1);
+
+        box-shadow:
+            0 0 30px rgba(255, 213, 74, 0.8),
+            0 0 60px rgba(255, 213, 74, 0.45),
+            0 0 100px rgba(255, 213, 74, 0.2);
+
+    }
+
+    to {
+
+        transform: scale(1.06);
+
+        box-shadow:
+            0 0 45px rgba(255, 213, 74, 1),
+            0 0 90px rgba(255, 213, 74, 0.65),
+            0 0 150px rgba(255, 213, 74, 0.35);
+
+    }
+
+}

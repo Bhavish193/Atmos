@@ -29,7 +29,7 @@ export async function getWeatherData(
 
     const weatherResponse = await fetch(
 
-        `${WEATHER_URL}?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,weather_code`
+        `${WEATHER_URL}?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,weather_code,is_day`
 
     );
 
@@ -56,16 +56,25 @@ export async function getWeatherData(
         weatherCode: weather.current.weather_code,
 
         condition: getWeatherCondition(
-            weather.current.weather_code
+            weather.current.weather_code,
+            weather.current.is_day
         ),
+
     };
 }
 
 // -----------------------------
 
-function getWeatherCondition(code: number): string {
+function getWeatherCondition(
+    code: number,
+    isDay: number
+): string {
 
-    if (code === 0) return "Clear Sky";
+    if (code === 0) {
+
+        return isDay ? "Clear Sky" : "Clear Night";
+
+    }
 
     if (code <= 3) return "Cloudy";
 
@@ -80,4 +89,5 @@ function getWeatherCondition(code: number): string {
     if (code <= 99) return "Thunderstorm";
 
     return "Unknown";
+
 }

@@ -1,156 +1,17 @@
 .weather-scene{
-
-    position:fixed;
-
+    position:absolute;
     inset:0;
-
-    pointer-events:none;
 
     overflow:hidden;
 
-    z-index:0;
+    border-radius:24px;
+
+    pointer-events:none;
+
+    z-index:1;
 }
 
-/* -----------------------------
-   Ambient Glow
-------------------------------*/
-
-.scene-glow{
-
+.weather-scene > *{
     position:absolute;
-
-    width:850px;
-    height:850px;
-
-    left:-220px;
-    top:-220px;
-
-    border-radius:50%;
-
-    filter:blur(170px);
-
-    opacity:.14;
-
-    animation:ambientFloat 22s ease-in-out infinite;
-}
-
-/* -----------------------------
-   CLEAR SKY
-------------------------------*/
-
-.scene-clear{
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,188,92,.50) 0%,
-            rgba(255,140,40,.18) 45%,
-            transparent 72%
-        );
-}
-
-/* -----------------------------
-   CLOUDY
-------------------------------*/
-
-.scene-cloudy{
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(180,190,215,.30) 0%,
-            rgba(120,140,185,.12) 55%,
-            transparent 75%
-        );
-}
-
-/* -----------------------------
-   RAIN
-------------------------------*/
-
-.scene-rain{
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(85,150,255,.28) 0%,
-            rgba(50,110,220,.12) 55%,
-            transparent 75%
-        );
-}
-
-/* -----------------------------
-   SNOW
-------------------------------*/
-
-.scene-snow{
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(225,240,255,.36) 0%,
-            rgba(170,205,255,.16) 55%,
-            transparent 75%
-        );
-}
-
-/* -----------------------------
-   THUNDER
-------------------------------*/
-
-.scene-thunder{
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(165,120,255,.35) 0%,
-            rgba(110,80,220,.14) 55%,
-            transparent 75%
-        );
-}
-
-/* -----------------------------
-   DEFAULT
-------------------------------*/
-
-.scene-default{
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(120,120,255,.18) 0%,
-            transparent 75%
-        );
-}
-
-/* -----------------------------
-   Animation
-------------------------------*/
-
-@keyframes ambientFloat{
-
-    0%{
-
-        transform:
-            translate(0px,0px)
-            scale(1);
-
-    }
-
-    50%{
-
-        transform:
-            translate(90px,55px)
-            scale(1.08);
-
-    }
-
-    100%{
-
-        transform:
-            translate(0px,0px)
-            scale(1);
-
-    }
-
+    inset:0;
 }

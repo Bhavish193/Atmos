@@ -1,51 +1,36 @@
-import type { WeatherData } from "../types/weather";
 import "../styles/weatherScene.css";
 
+import CloudEffect from "./effects/CloudEffect";
+import RainEffect from "./effects/RainEffect";
+import LightningEffect from "./effects/LightningEffect";
+import  SnowEffect from "./effects/SnowEffect";
+import FogEffect from "./effects/FogEffect";
+import SunEffect from "./effects/SunEffect";
+import MoonEffect from "./effects/MoonEffect";
+
 interface WeatherSceneProps {
-    weather: WeatherData | null;
-    searched: boolean;
+    condition: string;
 }
 
-function WeatherScene({ weather, searched }: WeatherSceneProps) {
+function WeatherScene({ condition }: WeatherSceneProps) {
 
-    if (!searched || !weather) {
-        return null;
-    }
-
-    const condition = weather.condition.toLowerCase();
-
-    console.log("Weather condition:", weather.condition);
-
-    let glowClass = "scene-default";
-
-    if (condition.includes("clear")) {
-        glowClass = "scene-clear";
-    }
-    else if (condition.includes("cloud")) {
-        glowClass = "scene-cloudy";
-    }
-    else if (condition.includes("rain")) {
-        glowClass = "scene-rain";
-    }
-    else if (condition.includes("snow")) {
-        glowClass = "scene-snow";
-    }
-    else if (condition.includes("thunder")) {
-        glowClass = "scene-thunder";
-    }
-
-    console.log("Applied class:", glowClass);
 
     return (
         <div className="weather-scene">
 
-            <div
-                className={`scene-glow ${glowClass}`}
-                style={{
-                    opacity: 1,
-                    filter: "blur(70px)"
-                }}
-            ></div>
+            <CloudEffect condition={condition} />
+
+            <RainEffect condition={condition} />
+
+            <LightningEffect condition={condition} />
+
+            <SnowEffect condition={condition} />
+
+            <FogEffect condition={condition} />
+
+            <SunEffect condition={condition} />
+
+            <MoonEffect condition={condition} />
 
         </div>
     );

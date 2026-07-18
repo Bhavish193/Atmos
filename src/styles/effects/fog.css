@@ -1,0 +1,175 @@
+.fog-effect{
+
+    position:absolute;
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+.fog{
+
+    position:absolute;
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:999px;
+
+    filter:blur(28px);
+
+    opacity:.55;
+
+}
+
+.fog::before,
+.fog::after{
+
+    content:"";
+
+    position:absolute;
+
+    background:inherit;
+
+    border-radius:inherit;
+
+}
+
+.fog::before{
+
+    width:65%;
+
+    height:100%;
+
+    left:-18%;
+
+    top:-15%;
+
+}
+
+.fog::after{
+
+    width:55%;
+
+    height:90%;
+
+    right:-12%;
+
+    top:10%;
+
+}
+
+.fog-1{
+
+    width:320px;
+
+    height:90px;
+
+    top:18%;
+
+    left:-340px;
+
+    animation:fogMove1 26s linear infinite;
+
+}
+
+.fog-2{
+
+    width:420px;
+
+    height:120px;
+
+    top:48%;
+
+    right:-460px;
+
+    opacity:.38;
+
+    animation:fogMove2 34s linear infinite;
+
+}
+
+.fog-3{
+
+    width:280px;
+
+    height:80px;
+
+    bottom:12%;
+
+    left:-300px;
+
+    opacity:.28;
+
+    animation:fogMove3 30s linear infinite;
+
+}
+
+@keyframes fogMove1{
+
+    from{
+
+        transform:translateX(0) translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateX(650px) translateY(-6px);
+
+    }
+
+    to{
+
+        transform:translateX(1300px) translateY(0);
+
+    }
+
+}
+
+@keyframes fogMove2{
+
+    from{
+
+        transform:translateX(0) translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateX(-700px) translateY(8px);
+
+    }
+
+    to{
+
+        transform:translateX(-1400px) translateY(0);
+
+    }
+
+}
+
+@keyframes fogMove3{
+
+    from{
+
+        transform:translateX(0) translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateX(680px) translateY(-5px);
+
+    }
+
+    to{
+
+        transform:translateX(1320px) translateY(0);
+
+    }
+
+}

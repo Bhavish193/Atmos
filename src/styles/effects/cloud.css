@@ -1,0 +1,117 @@
+.cloud-effect{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+/* ---------------- Cloud ---------------- */
+
+.cloud{
+    position:absolute;
+
+    width:170px;
+    height:55px;
+
+    background:rgba(255,255,255,.16);
+
+    border-radius:100px;
+
+    filter:blur(6px);
+}
+
+.cloud::before{
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    left:20px;
+    top:-28px;
+
+    border-radius:50%;
+
+    background:inherit;
+}
+
+.cloud::after{
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    right:20px;
+    top:-40px;
+
+    border-radius:50%;
+
+    background:inherit;
+}
+
+/* ---------------- Individual Clouds ---------------- */
+
+.cloud1{
+    top:35px;
+    left:-220px;
+
+    animation:cloudMove1 55s linear infinite;
+}
+
+.cloud2{
+    top:95px;
+    left:-260px;
+
+    transform:scale(.8);
+
+    opacity:.7;
+
+    animation:cloudMove2 70s linear infinite;
+}
+
+.cloud3{
+    top:160px;
+    left:-240px;
+
+    transform:scale(.95);
+
+    opacity:.5;
+
+    animation:cloudMove3 85s linear infinite;
+}
+
+/* ---------------- Animation ---------------- */
+
+@keyframes cloudMove1{
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(950px);
+    }
+}
+
+@keyframes cloudMove2{
+    from{
+        transform:translateX(0) scale(.8);
+    }
+
+    to{
+        transform:translateX(980px) scale(.8);
+    }
+}
+
+@keyframes cloudMove3{
+    from{
+        transform:translateX(0) scale(.95);
+    }
+
+    to{
+        transform:translateX(1020px) scale(.95);
+    }
+}

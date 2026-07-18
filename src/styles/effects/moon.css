@@ -1,0 +1,80 @@
+.moon-effect{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+.moon{
+
+    position:absolute;
+
+    width:110px;
+    height:110px;
+
+    top:5px;
+    left:620px;
+
+    border-radius:50%;
+
+    background:#F5F3E7;
+
+    box-shadow:
+        0 0 14px rgba(255,255,255,.35),
+        0 0 32px rgba(245,243,231,.28),
+        0 0 60px rgba(245,243,231,.18);
+
+    animation:moonGlow 4s ease-in-out infinite alternate;
+
+}
+
+.moon::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:96px;
+    height:96px;
+
+    top:0;
+    left:20px;
+
+    border-radius:50%;
+
+    background:rgba(44,50,78,.95);
+
+}
+
+@keyframes moonGlow{
+
+    from{
+
+        transform:scale(1);
+
+        box-shadow:
+            0 0 18px rgba(255,255,255,.3),
+            0 0 40px rgba(245,243,231,.25),
+            0 0 70px rgba(245,243,231,.15);
+
+    }
+
+    to{
+
+        transform:scale(1.03);
+
+        box-shadow:
+            0 0 28px rgba(255,255,255,.45),
+            0 0 60px rgba(245,243,231,.35),
+            0 0 100px rgba(245,243,231,.22);
+
+    }
+
+}

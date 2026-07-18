@@ -8,7 +8,7 @@ import WeatherCard from "./components/WeatherCard";
 import Highlights from "./components/Highlights";
 import Forecast from "./components/Forecast";
 import Footer from "./components/Footer";
-import WeatherScene from "./components/WeatherScene";
+
 
 
 
@@ -35,11 +35,6 @@ function App() {
 
     return (
         <div className="app">
-
-            <WeatherScene
-                weather={weather}
-                searched={searched}
-            />
 
             <Navbar goHome={goHome} />
 

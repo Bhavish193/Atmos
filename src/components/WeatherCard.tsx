@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import type { WeatherData } from "../types/weather";
+import WeatherScene from "./WeatherScene";
 
 interface WeatherCardProps {
     weather: WeatherData;
@@ -65,6 +66,8 @@ function WeatherCard({ weather }: WeatherCardProps) {
         <section className="weather-section">
 
             <div className={`weather-card ${weather.condition.toLowerCase().replace(/\s+/g, "-")}`}>
+
+                <WeatherScene condition={weather.condition} />
 
                 <div className="weather-overlay"></div>
 
