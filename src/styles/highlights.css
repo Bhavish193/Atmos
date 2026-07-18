@@ -1,0 +1,172 @@
+.highlights-section{
+
+    width:min(1240px,90%);
+
+    margin:50px auto 0;
+
+}
+
+.highlights-section h2{
+
+    color:#fff;
+
+    font-size:1.5rem;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+/* ========================= */
+
+.highlights-card{
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-radius:30px;
+
+    padding:22px 0;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.22);
+
+    transition:.3s ease;
+
+}
+
+
+/* ========================= */
+
+.highlights-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    grid-template-rows:repeat(2,1fr);
+
+}
+
+/* ========================= */
+
+.highlight-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:24px 30px;
+
+    min-height:165px;
+
+    position:relative;
+
+}
+
+/* ---------- Vertical Divider ---------- */
+
+.highlight-item:not(:nth-child(4n)){
+
+    border-right:1px solid rgba(255,255,255,.12);
+
+}
+
+/* ---------- Horizontal Divider ---------- */
+
+.highlight-item:nth-child(-n+4){
+
+    border-bottom:1px solid rgba(255,255,255,.12);
+
+}
+
+/* ========================= */
+
+.highlight-icon{
+
+    width:52px;
+
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.05);
+
+    color:#FFD34D;
+
+    margin-bottom:16px;
+
+}
+
+.highlight-item h3{
+
+    color:#cfd4ef;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    margin-bottom:12px;
+
+}
+
+.highlight-item p{
+
+    color:#fff;
+
+    font-size:1.65rem;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+}
+
+.highlight-item span{
+
+    color:#9FA8C8;
+
+    font-size:.88rem;
+
+}
+
+/* ========================= */
+
+@media(max-width:1000px){
+
+    .highlights-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .highlight-item{
+
+        border:none !important;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .highlights-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

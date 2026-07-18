@@ -5,8 +5,8 @@ import { getWeatherData } from "./services/weatherApi";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import WeatherCard from "./components/WeatherCard";
-import Highlights from "./components/Highlights";
-import Forecast from "./components/Forecast";
+import HighlightsCard from "./components/HighlightsCard";
+import ForecastCard from "./components/ForecastCard";
 import Footer from "./components/Footer";
 
 
@@ -83,8 +83,8 @@ function App() {
             {searched && weather && (
                 <>
                     <WeatherCard weather={weather} />
-                    <Highlights />
-                    <Forecast />
+                    <HighlightsCard weather={weather}/>
+                    <ForecastCard forecast={weather.forecast}/>
                     <Footer />
                 </>
             )}
