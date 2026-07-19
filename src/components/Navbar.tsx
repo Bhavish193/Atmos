@@ -1,7 +1,6 @@
 import "./../styles/navbar.css";
 import { FaGithub } from "react-icons/fa";
 import { MoonStar, SunMedium } from "lucide-react";
-import { FiMoon } from "react-icons/fi";
 import AtmosLogoWind from "./AtmosLogoWind";
 
 interface NavbarProps {
