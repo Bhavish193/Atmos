@@ -1,10 +1,15 @@
 interface AtmosLogoProps {
     size?: number;
+    className?: string;
 }
 
-function AtmosLogoWind({ size = 42 }: AtmosLogoProps) {
+function AtmosLogoWind({
+    size = 42,
+    className,
+}: AtmosLogoProps) {
     return (
         <svg
+            className={className}
             width={size}
             height={size}
             viewBox="0 0 64 64"

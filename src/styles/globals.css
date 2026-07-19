@@ -105,17 +105,23 @@ body{
 
         radial-gradient(
             circle at 18% 42%,
-            rgba(160,90,255,.22),
-            transparent 36%
+            rgba(160,90,255,.34),
+            transparent 38%
         ),
 
         radial-gradient(
             circle at 88% 82%,
-            rgba(60,150,255,.14),
-            transparent 34%
+            rgba(70,140,255,.22),
+            transparent 36%
+        ),
+
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(120,170,255,.10),
+            transparent 26%
         );
 
-    filter:blur(90px);
+    filter:blur(95px);
 
     animation:nebulaMove 45s ease-in-out infinite;
 
@@ -133,15 +139,35 @@ body{
 
     z-index:-2;
 
-    opacity:.15;
+    opacity:.05;
+
+    transition:opacity .8s ease;
 
     background-image:
 
-        radial-gradient(rgba(255,255,255,.95) 0.9px, transparent 1.6px),
-        radial-gradient(rgba(255,255,255,.85) 1px, transparent 1.2px),
-        radial-gradient(rgba(255,255,255,.75) .6px, transparent .9px),
-        radial-gradient(rgba(255,255,255,.6) .4px, transparent .7px);
+    radial-gradient(
+        rgba(255,255,255,.98) .9px,
+        rgba(170,200,255,.18) 1.8px,
+        transparent 2.2px
+    ),
 
+    radial-gradient(
+        rgba(255,255,255,.9) 1px,
+        rgba(170,200,255,.14) 2px,
+        transparent 2.4px
+    ),
+
+    radial-gradient(
+        rgba(255,255,255,.8) .7px,
+        rgba(170,200,255,.12) 1.5px,
+        transparent 1.9px
+    ),
+
+    radial-gradient(
+        rgba(255,255,255,.7) .45px,
+        rgba(170,200,255,.10) 1px,
+        transparent 1.3px
+    );
     background-size:
         110px 110px,
         170px 170px,
@@ -157,6 +183,64 @@ body{
     animation:
         stars1 70s ease-in-out infinite,
         starsTwinkle 4s ease-in-out infinite;
+}
+
+.app::after{
+
+    transition:opacity .8s ease;
+
+}
+
+.app.day{
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #2b2336 0%,
+            #2f2742 40%,
+            #1b2742 100%
+        );
+
+     box-shadow:
+        inset 0 180px 260px rgba(255,145,20,.10);
+
+}
+
+.app.day::after{
+    opacity:0 !important;
+}
+
+.app.day::before{
+
+    background:
+
+        radial-gradient(
+            circle at -8% 28%,
+            rgba(255,165,30,.48) 0%,
+            rgba(255,135,0,.32) 24%,
+            rgba(255,110,0,.16) 46%,
+            transparent 72%
+        ),
+
+        radial-gradient(
+            circle at 22% 35%,
+            rgba(145,110,255,.08),
+            transparent 55%
+        ),
+
+        radial-gradient(
+            circle at 85% 72%,
+            rgba(90,150,255,.14),
+            transparent 45%
+        );
+
+}
+
+.app.night{
+
+    box-shadow:
+        inset 0 0 220px rgba(0,0,0,.22);
 
 }
 
@@ -239,11 +323,11 @@ body{
 @keyframes starsTwinkle{
 
     0%,100%{
-        opacity:.35;
+        opacity:.05;
     }
 
     50%{
-        opacity:.55;
+        opacity:.08;
     }
 
 }
@@ -401,5 +485,36 @@ body{
             translateY(-120px);
 
     }
+
+}
+
+
+.results{
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+
+}
+
+.results.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+.results.hide{
+
+    opacity:0;
+
+    transform:
+        translateY(18px)
+        scale(.985);
+
+    pointer-events:none;
 
 }

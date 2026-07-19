@@ -1,17 +1,20 @@
 import "./../styles/navbar.css";
 import { FaGithub } from "react-icons/fa";
+import { MoonStar, SunMedium } from "lucide-react";
 import { FiMoon } from "react-icons/fi";
 import AtmosLogoWind from "./AtmosLogoWind";
+
 interface NavbarProps {
     goHome: () => void;
+    dayMode: boolean;
+    toggleDayMode: () => void;
 }
-
-function Navbar({ goHome }: NavbarProps) {
+function Navbar({goHome, dayMode, toggleDayMode,}: NavbarProps) {
     return (
         <nav className="navbar">
 
             <div className="logo" onClick={goHome}>
-                <AtmosLogoWind size={42}/>
+                <AtmosLogoWind className="logo-icon"/>
                 <span>Atmos</span>
             </div>
 
@@ -25,7 +28,17 @@ function Navbar({ goHome }: NavbarProps) {
                     <FaGithub />
                 </a>
 
-                <FiMoon />
+                <button
+                    className="theme-toggle"
+                    onClick={toggleDayMode}
+                    aria-label="Toggle Theme"
+                >
+                    {dayMode ? (
+                        <SunMedium size={20} strokeWidth={2.2} />
+                    ) : (
+                        <MoonStar size={20} strokeWidth={2.2} />
+                    )}
+                </button>
             </div>
         </nav>
     );

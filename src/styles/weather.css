@@ -18,9 +18,9 @@
 
     padding:45px;
 
-    background:rgba(255,255,255,.07);
+    background:rgba(255,255,255,.04);
 
-    backdrop-filter:blur(30px);
+    backdrop-filter:blur(20px);
 
     -webkit-backdrop-filter:blur(30px);
 
@@ -118,7 +118,7 @@
 
     gap:18px;
 
-    color:var(--text-light);
+    color:rgba(255,255,255,.58);
 
 }
 
@@ -140,7 +140,7 @@
 
     gap:8px;
 
-    color:var(--text-light);
+    color:rgba(255,255,255,.72);
 
     margin-bottom:15px;
 
@@ -150,7 +150,7 @@
 
     font-size:1.2rem;
 
-    color:var(--text-light);
+    color:rgba(255,255,255,.78);
 
 }
 
@@ -188,13 +188,17 @@
 
     gap:60px;
 
-    color:var(--text-light);
+    color:rgba(255,255,255,.60);
+
+    font-weight:500;
 
 }
 
 .details span{
 
-    color:white;
+    color:#FFFFFF;
+
+    font-weight:700;
 
 }
 

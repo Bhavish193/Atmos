@@ -24,13 +24,17 @@
     opacity: 0.9;
 }
 
-.logo svg{
-    font-size:2rem;
-    color:var(--primary);
+.logo-icon{
+
     width:42px;
     height:42px;
+
     flex-shrink:0;
-    margin-right:-1px;
+
+    color:var(--primary);
+
+    transition:.3s ease;
+
 }
 
 .nav-links{
@@ -89,3 +93,65 @@
 
 }
 
+
+.theme-toggle{
+
+    width:44px;
+    height:44px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+    outline:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    color:#f8fafc;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    transition:all .3s ease;
+
+}
+
+.theme-toggle:hover{
+
+    transform:translateY(-2px);
+
+    background:rgba(255,255,255,.10);
+
+    border-color:rgba(255,255,255,.16);
+
+}
+
+.theme-toggle svg{
+
+    transition:transform .35s ease;
+
+}
+
+.theme-toggle:hover svg{
+
+    transform:rotate(-12deg);
+
+}
+
+.app.night .theme-toggle{
+
+    color:#c4b5fd;
+
+}
+
+.app.day .theme-toggle{
+
+    color:#ffb347;
+
+}

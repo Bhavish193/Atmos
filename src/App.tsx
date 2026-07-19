@@ -18,7 +18,10 @@ function App() {
     const [city, setCity] = useState("");
 
     const [weather, setWeather] = useState<WeatherData | null>(null);
+    const [cardVisible, setCardVisible] = useState(true);
     const [loading, setLoading] = useState(false);
+
+    const [dayMode, setDayMode] = useState(false);
 
     const [error, setError] =useState("");
 
@@ -34,9 +37,13 @@ function App() {
 
 
     return (
-        <div className="app">
+        <div className={`app ${dayMode ? "day" : "night"}`}>
 
-            <Navbar goHome={goHome} />
+            <Navbar
+                goHome={goHome}
+                dayMode={dayMode}
+                toggleDayMode={() => setDayMode(!dayMode)}
+            />
 
             <Hero
                 searched={searched}
@@ -54,7 +61,18 @@ function App() {
 
                         const data = await getWeatherData(searchCity);
 
+                        // If a card is already visible, animate it out
+                        if (weather) {
+                            setCardVisible(false);
+
+                            await new Promise(resolve => setTimeout(resolve, 300));
+                        }
+
                         setWeather(data);
+
+                        requestAnimationFrame(() => {
+                            setCardVisible(true);
+                        });
                         setSearched(true);
 
                     } catch (err) {
@@ -81,12 +99,14 @@ function App() {
             )}
 
             {searched && weather && (
-                <>
-                    <WeatherCard weather={weather} />
+                <div className={`results ${cardVisible ? "show" : "hide"}`}>
+
+                    <WeatherCard weather={weather}/>
                     <HighlightsCard weather={weather}/>
                     <ForecastCard forecast={weather.forecast}/>
-                    <Footer />
-                </>
+                    <Footer/>
+
+                </div>
             )}
 
         </div>
