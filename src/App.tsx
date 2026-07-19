@@ -52,15 +52,14 @@ function App() {
                 loading={loading}
                 onSearch={async (searchCity) => {
 
-                    if (searchCity.trim() === "") return;
-
+                    const query = searchCity.trim();
+                    if (query === "") return;
                     try {
 
                         setError("");
                         setLoading(true);
 
-                        const data = await getWeatherData(searchCity);
-
+                        const data = await getWeatherData(query);
                         // If a card is already visible, animate it out
                         if (weather) {
                             setCardVisible(false);
