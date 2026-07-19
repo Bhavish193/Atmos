@@ -1,75 +1,151 @@
-# React + TypeScript + Vite
+# 🌤️ Atmos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive weather dashboard built with **React**, **TypeScript**, and **Vite**. Atmos provides real-time weather information with beautiful dynamic backgrounds, smooth UI animations, and a clean glassmorphism design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📸 Preview
 
-## React Compiler
+<img width="100%" alt="Atmos Preview" src="./src/assets/Preview.png">
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> *(Replace `Preview.png` with your final project screenshot.)*
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🌍 Search weather by city
+- 🌡️ Current temperature and weather conditions
+- 📅 5-Day weather forecast
+- 💨 Weather highlights including:
+  - Feels Like
+  - Humidity
+  - Wind Speed
+- 🌅 Dynamic weather backgrounds
+- 🌙 Manual Day / Night mode
+- ✨ Glassmorphism UI
+- 📱 Fully responsive design
+- ⚡ Fast performance with Vite
+- 🧩 Built with reusable React components
+- 🔄 Live weather data powered by Open-Meteo APIs
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Tech Stack
 
-```
+- React
+- TypeScript
+- Vite
+- CSS3
+- Open-Meteo API
+- React Icons
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Project Structure
 
 ```
+src
+│
+├── assets
+│
+├── components
+│   ├── Navbar
+│   ├── Hero
+│   ├── WeatherCard
+│   ├── Highlights
+│   ├── Forecast
+│   └── Footer
+│
+├── services
+│   └── weatherApi.ts
+│
+├── styles
+│
+├── types
+│
+├── App.tsx
+└── main.tsx
+```
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository
+
+```bash
+git clone https://github.com/Bhavish193/Atmos
+```
+
+Go to the project directory
+
+```bash
+cd Atmos
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
+
+```bash
+npm run dev
+```
+
+Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## 🌐 Live Demo
+
+🔗 **Coming Soon**
+
+*(Replace this with your Vercel deployment URL.)*
+
+---
+
+## 📸 Screenshots
+
+### Home
+
+<img width="100%" src="./src/assets/Home.png">
+
+### Weather Search
+
+<img width="100%" src="./src/assets/Weather.png">
+
+*(Replace with your own screenshots if available.)*
+
+---
+
+## 📌 Future Improvements
+
+- 📍 Current location weather
+- ⏰ Hourly forecast
+- 🌎 Recent search history
+- 🌅 Sunrise & Sunset information
+- 🌬️ Air Quality Index
+- ⭐ Favorite cities
+
+---
+
+## 🙌 Acknowledgements
+
+- Open-Meteo API
+- React
+- Vite
+- React Icons
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
